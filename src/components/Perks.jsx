@@ -31,14 +31,42 @@ function Perks() {
   const totalPage = data.length;
   const settings = {
     dots: false,
-    infinite: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
     centerMode: true,
+    slidesToShow: 2.5,
+    slidesToScroll: 2.5,
+    infinite: true,
     speed: 250,
     initialSlide: 1,
     prevArrow: <></>,
     nextArrow: <></>,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 2.5,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 720,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: false,
+        },
+      },
+      {
+        breakpoint: 560,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+        },
+      },
+    ],
     afterChange: (current) => setActive(current),
   };
 
@@ -60,10 +88,12 @@ function Perks() {
     }
   };
   return (
-    <section id="the-perks" className="px-5 py-5 bg-[#509FDD]">
-      <div className="px-5 py-5 bg-white">
-        <h2 className="text-2xl mb-4 text-[#029FE4] font-bold">OUR SPECIALITY</h2>
-        <p className="text-[#303030]">
+    <section id="the-perks" className="px-5 py-5 bg-[#509FDD] md:bg-white">
+      <div className="container max-w-6xl px-5 py-5 mx-auto bg-white">
+        <h2 className="text-2xl md:text-6xl md:font-medium uppercase md:normal-case  mb-4 text-[#029FE4] font-bold">
+          Our Speciality
+        </h2>
+        <p className="text-[#303030] md:text-2xl">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod
           libero vel leo auctor, in venenatis nulla consequat. Sed commodo nunc
           sit amet congue aliquam.
@@ -71,8 +101,19 @@ function Perks() {
         <Slider {...settings} className="relative z-[1]" ref={ref}>
           {data.map((item, i) => (
             <div key={i} className="py-10">
-              <div className="w-full px-10 py-2 bg-white">{item.icon}</div>
-              <p className="text-[#303030] text-center">{item.name}</p>
+              <div className="w-full px-10 py-2 bg-white md:px-20">
+                {item.icon}
+              </div>
+              <p className="md:text-xl md:my-4 md:font-medium text-[#303030] text-center">
+                {item.name}
+              </p>
+              <p
+                className={twMerge(
+                  "px-4  md:text-lg md:my-4 text-[#A7A7A7] text-center pb-10 md:block hidden"
+                )}
+              >
+                {item.description}
+              </p>
             </div>
           ))}
         </Slider>
@@ -80,7 +121,7 @@ function Perks() {
           <p
             key={i}
             className={twMerge(
-              "text-[#A7A7A7] text-center pb-10",
+              "text-[#A7A7A7] text-center pb-10 md:hidden",
               i == active ? "block" : "hidden"
             )}
           >
@@ -106,7 +147,10 @@ function Perks() {
               />
             ))}
           </div>
-          <button className="bg-transparent text-[#3D46A2] px-4 py-4 " onClick={next}>
+          <button
+            className="bg-transparent text-[#3D46A2] px-4 py-4 "
+            onClick={next}
+          >
             <IconArrowRight className={"w-5 h-auto"} />
           </button>
         </div>

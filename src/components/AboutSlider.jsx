@@ -25,7 +25,7 @@ const data = [
 
 function AboutSlider() {
   const ref = useRef(null);
-  const [active, setActive] = useState(0)
+  const [active, setActive] = useState(0);
   const totalPage = data.length;
   const settings = {
     dots: false,
@@ -33,50 +33,58 @@ function AboutSlider() {
     slideToShow: 1,
     speed: 250,
     initialSlide: 0,
-    prevArrow: null,
-    nextArrow: null,
-    afterChange: current => setActive(current)
+    prevArrow: <></>,
+    nextArrow: <></>,
+    afterChange: (current) => setActive(current),
   };
   return (
-    <>
-      <Slider {...settings} className="relative z-[1]" ref={ref}>
-        {data.map((item, i) => (
-          <div key={i}>
-            <div className="w-full px-10 py-10 bg-white">
-              <h3 className="text-4xl mb-4  font-medium text-[#029FE4]">{item.about}</h3>
-              <p className="mb-2 text-xl">{item.name}</p>
-              <p className="text-[#777777]">{item.description}</p>
+    <div id="who-we-are" className="relative bg-white md:bg-transparent md:-mt-12 md:pt-20">
+      <div
+        className="absolute top-0 left-0 hidden w-full h-full text-white bg-gray-200 md:block"
+        style={{ clipPath: "polygon(0 8rem, 100% 0, 100% 100%, 0 100%)" }}
+      />
+      <div
+        className="absolute top-0 left-0 hidden w-full h-full text-white bg-gray-100 md:block"
+        style={{ clipPath: "polygon(0 0, 100% 4rem, 100% 100%, 0 100%)" }}
+      />
+      <div className="container relative max-w-6xl mx-auto md:py-40">
+        <Slider {...settings} className=" relative z-[1]" ref={ref}>
+          {data.map((item, i) => (
+            <div key={i}>
+              <div className="w-full px-10 py-10">
+                <h3 className="text-4xl md:text-6xl mb-4  font-medium text-[#029FE4] ">
+                  {item.about}
+                </h3>
+                <p className="mb-2 text-xl md:text-2xl md:text-gray-700">{item.name}</p>
+                <p className="text-[#777777] md:text-xl md:text-gray-600">{item.description}</p>
+              </div>
             </div>
+          ))}
+        </Slider>
+        <div className="flex items-center px-10 py-10">
+          <div className="font-medium children:mx-0.5 mr-auto">
+            <span className="text-3xl ">{("00" + (active + 1)).slice(-2)}</span>
+            <span className="text-3xl font-normal text-[#B6B6B6] ">/</span>
+            <span className="text-lg text-[#B6B6B6] ">
+              {("00" + totalPage).slice(-2)}
+            </span>
           </div>
-        ))}
-      </Slider>
-      <div className="flex items-center px-10 py-10">
-        <div className="font-medium children:mx-0.5 mr-auto">
-          <span className="text-3xl">
-            {('00' + (active + 1)).slice(-2)}
-          </span>
-          <span className="text-3xl font-normal text-[#B6B6B6]">
-             /
-          </span>
-          <span className="text-lg text-[#B6B6B6]">
-            {('00' + totalPage).slice(-2)}
-          </span>
-        </div>
-        <button
-          className="bg-[#F1F1F1] text-[#B6B6B6] px-4 py-4  "
-          onClick={ref?.current?.slickPrev}
-        >
-          <IconArrowLeft className={"w-5 h-auto"} />
-        </button>
+          <button
+            className="bg-[#F1F1F1] md:bg-gray-700  text-[#B6B6B6] px-4 py-4  "
+            onClick={ref?.current?.slickPrev}
+          >
+            <IconArrowLeft className={"w-5 h-auto"} />
+          </button>
 
-        <button
-          className="bg-[#1BA0E1] text-white px-4 py-4  "
-          onClick={ref?.current?.slickNext}
-        >
-          <IconArrowRight className={"w-5 h-auto"} />
-        </button>
+          <button
+            className="bg-[#1BA0E1] md:bg-gray-950 md:text-[#1BA0E1] text-white px-4 py-4  "
+            onClick={ref?.current?.slickNext}
+          >
+            <IconArrowRight className={"w-5 h-auto"} />
+          </button>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -28,46 +28,49 @@ function Footer() {
       />
       <div className="relative children:my-8">
         <CompanyHighContrast className={"w-60 text-white -ml-4 "} />
-        <div className="w-full px-6 py-5 bg-white children:my-3">
-          <select
-            defaultValue={locations[activeLocation]?.name}
-            onChange={(e) => setActiveLocation(e.target.value)}
-            className="w-full px-3 py-3 text-sm font-bold uppercase text-[#00537C] bg-white outline rounded-sm outline-1 outline-gray-200 border-r-[1rem] border-transparent"
-            style={{
-              WebkitAppearance: "none",
-              background:
-                "url(/salt-fe-test/icon-dropdown.svg) no-repeat right",
-            }}
-          >
-            {locations.map((location, i) => (
-              <option value={i} key={i}>
-                {location.name}
-              </option>
-            ))}
-          </select>
-          {locations.map((location, i) => (
-            <p
-              key={i}
-              className={twMerge(
-                "text-[#25A0D8] max-w-[12rem]",
-                (i == activeLocation && "block") || "hidden"
-              )}
+        <div className="flex flex-wrap md:flex-nowrap md:flex-row-reverse">
+          <div className="w-full px-6 py-5 bg-white md:bg-transparent children:my-3  md:flex-[3]">
+            <select
+              defaultValue={locations[activeLocation]?.name}
+              onChange={(e) => setActiveLocation(e.target.value)}
+              className="w-full px-3 py-3 text-sm font-bold uppercase text-[#00537C] md:text-white bg-white outline rounded-sm outline-1 outline-gray-200 border-r-[1rem] border-transparent"
+              style={{
+                WebkitAppearance: "none",
+                background:
+                  "url(/salt-fe-test/icon-dropdown.svg) no-repeat right",
+              }}
             >
-              {location.address}
-            </p>
-          ))}
+              {locations.map((location, i) => (
+                <option value={i} key={i}>
+                  {location.name}
+                </option>
+              ))}
+            </select>
+
+            {locations.map((location, i) => (
+              <p
+                key={i}
+                className={twMerge(
+                  "text-[#25A0D8] max-w-[12rem]",
+                  (i == activeLocation && "block") || "hidden"
+                )}
+              >
+                {location.address}
+              </p>
+            ))}
+          </div>
+          <ul className="md:flex-[1] w-full my-4 text-white children:my-4">
+            <li>
+              <a href="#who-we-are">Who We Are</a>
+            </li>
+            <li>
+              <a href="#our-values">Our Values</a>
+            </li>
+            <li>
+              <a href="#the-perks">The Perks</a>
+            </li>
+          </ul>
         </div>
-        <ul className="my-4 text-white children:my-4">
-          <li>
-            <a href="#who-we-are">Who We Are</a>
-          </li>
-          <li>
-            <a href="#our-values">Our Values</a>
-          </li>
-          <li>
-            <a href="#the-perks">The Perks</a>
-          </li>
-        </ul>
       </div>
     </footer>
   );
