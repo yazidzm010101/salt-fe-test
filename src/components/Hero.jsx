@@ -3,6 +3,7 @@ import burger from "~/assets/icon-burger.svg";
 import company_profile from "~/assets/company.svg";
 import chevron_down from "~/assets/icon-chevron-down-double.svg";
 import banner from "~/assets/banner_benjamin-wong-4-ka5rdCesI-unsplash.png";
+import AboutSlider from "./AboutSlider";
 
 function Hero() {
   return (
@@ -40,15 +41,13 @@ function Hero() {
             </p>
           </div>
         </div>
-        <button className="absolute flex items-center justify-center w-12 h-12 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg left-1/2">
+        <button className="absolute flex items-center justify-center w-12 h-12 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg z-[2] left-1/2">
           <img src={chevron_down} className="w-6 h-auto" />
         </button>
       </div>
 
       {/* SLIDER */}
-      <div className="flex items-center justify-center font-medium text-gray-700 bg-white h-96">
-        TODO SLIDER
-      </div>
+      <AboutSlider />
     </section>
   );
 }

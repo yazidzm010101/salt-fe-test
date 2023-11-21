@@ -1,4 +1,5 @@
 import "./main.css";
+import "./slick.css";
 
 import Hero from "./components/Hero";
 import React from "react";
