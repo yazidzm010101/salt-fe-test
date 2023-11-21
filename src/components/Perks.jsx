@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import IconArrowLeft from "../assets/IconArrowLeft";
 import IconArrowRight from "../assets/IconArrowRight";
@@ -29,40 +29,21 @@ const data = [
 
 function Perks() {
   const ref = useRef(null);
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(2);
   const totalPage = data.length;
   const settings = {
     dots: false,
-    centerMode: true,
-    slidesToShow: 2.5,
-    slidesToScroll: 2.5,
-    infinite: true,
+    slidesToShow: 3,
+    infinite: false,
+    slidesToScroll: 3,
     speed: 250,
-    initialSlide: 1,
     prevArrow: <></>,
     nextArrow: <></>,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 640,
         settings: {
-          slidesToShow: 2.5,
-          slidesToScroll: 2.5,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 720,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 560,
-        settings: {
+          centerMode: true,
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: false,
@@ -89,6 +70,10 @@ function Perks() {
       ref.current.slickGoTo(i);
     }
   };
+
+  useEffect(() => {
+    goto(1)
+  })
   return (
     <section
       id="the-perks"
@@ -112,10 +97,10 @@ function Perks() {
         </p>
         <Slider {...settings} className="relative z-[1]" ref={ref}>
           {data.map((item, i) => (
-            <div key={i} className="py-10">
+            <div key={i} className="py-10 md:py-24">
               <div
                 data-aos="fade-up"
-                className="w-full px-10 py-2 bg-white md:px-20"
+                className="w-full px-10 py-2 bg-white md:px-24"
               >
                 {item.icon}
               </div>
@@ -149,7 +134,7 @@ function Perks() {
             {item.description}
           </p>
         ))}
-        <div className="flex items-center">
+        <div className="flex items-center sm:hidden">
           <button
             className="bg-transparent text-[#D2D2D2] px-4 py-4  "
             onClick={prev}
