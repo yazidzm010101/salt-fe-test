@@ -33,7 +33,7 @@ function Hero() {
       <div className="relative w-full md:-mt-[3.75rem]">
         <img
           src={banner}
-          className="w-full aspect-[16/9] xl:aspect-[16/6] object-cover"
+          className="w-full aspect-[16/9] md:aspect-[16/10] xl:aspect-[2] object-cover"
         />
         <div className="absolute top-0 left-0 hidden w-full h-full bg-black opacity-70 md:block" />
         <div className="relative w-full -mt-[4rem] md:-mt-0 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:text-center">
@@ -55,7 +55,7 @@ function Hero() {
             <p
               data-aos="fade-up"
               data-aos-delay="250"
-              className="max-w-md mx-auto mt-3 md:mt-5 md:text-xl md:max-w-xl"
+              className="max-w-md mt-3 md:mx-auto md:mt-5 md:text-xl md:max-w-xl"
             >
               Cupidatat eu deserunt id nulla exercitation irure labore aliquip
               commodo irure eiusmod elit. In adipisicing aute non voluptate. Id
@@ -65,7 +65,7 @@ function Hero() {
         </div>
         <a
           href="#who-we-are"
-          className="absolute flex items-center justify-center w-12 h-12 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg z-[2] left-1/2"
+          className="absolute flex items-center justify-center w-12 h-12 -translate-x-1/2 -translate-y-[70%] bg-white rounded-full shadow-lg z-[2] left-1/2"
         >
           <img src={chevron_down} className="w-6 h-auto" />
         </a>

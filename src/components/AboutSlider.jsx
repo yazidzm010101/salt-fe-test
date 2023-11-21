@@ -99,14 +99,14 @@ function AboutSlider() {
             </span>
           </div>
           <button
-            className="bg-[#F1F1F1] md:bg-gray-700  text-[#B6B6B6] px-4 py-4  "
+            className="bg-[#F1F1F1]   text-[#B6B6B6] px-4 py-4  "
             onClick={prev}
           >
             <IconArrowLeft className={"w-5 h-auto"} />
           </button>
 
           <button
-            className="bg-[#1BA0E1] md:bg-gray-950 md:text-[#1BA0E1] text-white px-4 py-4  "
+            className="bg-[#1BA0E1]  text-white px-4 py-4  "
             onClick={next}
           >
             <IconArrowRight className={"w-5 h-auto"} />
