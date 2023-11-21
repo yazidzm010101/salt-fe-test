@@ -4,6 +4,8 @@ import IconArrowLeft from "../assets/IconArrowLeft";
 import IconArrowRight from "../assets/IconArrowRight";
 import SpecialityAccesories from "../assets/SpecialityAccesories";
 import { twMerge } from "tailwind-merge";
+import SpecialityExhaust from "../assets/SpecialityExhaust";
+import SpecialitySpeed from "../assets/SpecialitySpeed";
 const data = [
   {
     icon: <SpecialityAccesories className={"w-full h-auto"} />,
@@ -12,13 +14,13 @@ const data = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod libero vel leo auctor, in venenatis nulla consequat. Sed commodo nunc sit amet congue aliquam.",
   },
   {
-    icon: <SpecialityAccesories className={"w-full h-auto"} />,
+    icon: <SpecialitySpeed className={"w-full h-auto"} />,
     name: "Speed Improvement",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod libero vel leo auctor, in venenatis nulla consequat. Sed commodo nunc sit amet congue aliquam.",
   },
   {
-    icon: <SpecialityAccesories className={"w-full h-auto"} />,
+    icon: <SpecialityExhaust className={"w-full h-auto"} />,
     name: "Exhaust",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod libero vel leo auctor, in venenatis nulla consequat. Sed commodo nunc sit amet congue aliquam.",
@@ -88,12 +90,22 @@ function Perks() {
     }
   };
   return (
-    <section id="the-perks" className="px-5 py-5 bg-[#509FDD] md:bg-white">
+    <section
+      id="the-perks"
+      className="px-5 py-5 bg-[#509FDD] md:bg-white md:py-32"
+    >
       <div className="container max-w-6xl px-5 py-5 mx-auto bg-white">
-        <h2 className="text-2xl md:text-6xl md:font-medium uppercase md:normal-case  mb-4 text-[#029FE4] font-bold">
+        <h2
+          data-aos="fade-up"
+          className="text-2xl md:text-6xl md:font-medium uppercase md:normal-case  mb-4 text-[#029FE4] font-bold"
+        >
           Our Speciality
         </h2>
-        <p className="text-[#303030] md:text-2xl">
+        <p
+          data-aos="fade-up"
+          data-aos-delay="125"
+          className="text-[#303030] md:text-2xl"
+        >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis euismod
           libero vel leo auctor, in venenatis nulla consequat. Sed commodo nunc
           sit amet congue aliquam.
@@ -101,13 +113,22 @@ function Perks() {
         <Slider {...settings} className="relative z-[1]" ref={ref}>
           {data.map((item, i) => (
             <div key={i} className="py-10">
-              <div className="w-full px-10 py-2 bg-white md:px-20">
+              <div
+                data-aos="fade-up"
+                className="w-full px-10 py-2 bg-white md:px-20"
+              >
                 {item.icon}
               </div>
-              <p className="md:text-xl md:my-4 md:font-medium text-[#303030] text-center">
+              <p
+                data-aos="fade-up"
+                data-aos-delay="125"
+                className="md:text-xl md:my-4 md:font-medium text-[#303030] text-center"
+              >
                 {item.name}
               </p>
               <p
+                data-aos="fade-up"
+                data-aos-delay="250"
                 className={twMerge(
                   "px-4  md:text-lg md:my-4 text-[#A7A7A7] text-center pb-10 md:block hidden"
                 )}

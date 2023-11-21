@@ -37,8 +37,22 @@ function AboutSlider() {
     nextArrow: <></>,
     afterChange: (current) => setActive(current),
   };
+
+  const prev = () => {
+    if (ref?.current) {
+      ref.current.slickPrev();
+    }
+  };
+  const next = () => {
+    if (ref?.current) {
+      ref.current.slickNext();
+    }
+  };
   return (
-    <div id="who-we-are" className="relative bg-white md:bg-transparent md:-mt-12 md:pt-20">
+    <div
+      id="who-we-are"
+      className="relative bg-white md:bg-transparent md:-mt-12 md:pt-20"
+    >
       <div
         className="absolute top-0 left-0 hidden w-full h-full text-white bg-gray-200 md:block"
         style={{ clipPath: "polygon(0 8rem, 100% 0, 100% 100%, 0 100%)" }}
@@ -52,11 +66,26 @@ function AboutSlider() {
           {data.map((item, i) => (
             <div key={i}>
               <div className="w-full px-10 py-10">
-                <h3 className="text-4xl md:text-6xl mb-4  font-medium text-[#029FE4] ">
+                <h3
+                  data-aos="fade-up"
+                  className="text-4xl md:text-6xl mb-4  font-medium text-[#029FE4] "
+                >
                   {item.about}
                 </h3>
-                <p className="mb-2 text-xl md:text-2xl md:text-gray-700">{item.name}</p>
-                <p className="text-[#777777] md:text-xl md:text-gray-600">{item.description}</p>
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay="125"
+                  className="mb-2 text-xl md:text-2xl md:text-gray-700"
+                >
+                  {item.name}
+                </p>
+                <p
+                  data-aos="fade-up"
+                  data-aos-delay="250"
+                  className="text-[#777777] md:text-xl md:text-gray-600"
+                >
+                  {item.description}
+                </p>
               </div>
             </div>
           ))}
@@ -71,14 +100,14 @@ function AboutSlider() {
           </div>
           <button
             className="bg-[#F1F1F1] md:bg-gray-700  text-[#B6B6B6] px-4 py-4  "
-            onClick={ref?.current?.slickPrev}
+            onClick={prev}
           >
             <IconArrowLeft className={"w-5 h-auto"} />
           </button>
 
           <button
             className="bg-[#1BA0E1] md:bg-gray-950 md:text-[#1BA0E1] text-white px-4 py-4  "
-            onClick={ref?.current?.slickNext}
+            onClick={next}
           >
             <IconArrowRight className={"w-5 h-auto"} />
           </button>
