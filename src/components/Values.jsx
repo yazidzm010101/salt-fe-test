@@ -22,7 +22,7 @@ const data = [
 
 function Values() {
   return (
-    <section className="w-full px-10 bg-[#F8F8F8] pt-10 overflow-hidden">
+    <section className="w-full px-10 bg-[#F8F8F8] pt-10 relative overflow-hidden">
       <div className="w-full children:my-5">
         <h2 className="text-4xl text-center text-[#029FE4] font-medium">
           Our Core Values
