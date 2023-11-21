@@ -65,7 +65,7 @@ function Hero() {
         </div>
         <a
           href="#who-we-are"
-          className="absolute flex items-center justify-center w-12 h-12 -translate-x-1/2 -translate-y-[70%] bg-white rounded-full shadow-lg z-[2] left-1/2"
+          className="absolute flex items-center hover:scale-105 -bottom-12 hover:-bottom-10 transition-all justify-center w-12 h-12 -translate-x-1/2 -translate-y-1/2 md:-translate-y-[80%] bg-white rounded-full shadow-lg z-[2] left-1/2"
         >
           <img src={chevron_down} className="w-6 h-auto" />
         </a>
